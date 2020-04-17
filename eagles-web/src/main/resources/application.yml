@@ -1,0 +1,38 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: eagles
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/eagles?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: root
+    hikari:
+      auto-commit: true
+      connection-test-query: select 1 from dual
+      connection-timeout: 30000
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      maximum-pool-size: 50
+      minimum-idle: 10
+      pool-name: UserHikariCP
+      read-only: false
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.huayan.eagles.*.entity
+  global-config:
+    db-config:
+      id-type: id_worker
+#      db-type: mysql
+      insert-strategy: default
+      update-strategy: default
+      select-strategy: default
+    banner: false #关闭MyBatis-Plus自带的打印Banner
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

@@ -1,4 +1,4 @@
-package com.huayan.eagles.eaglescommon;
+package com.huayan.eagles;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
